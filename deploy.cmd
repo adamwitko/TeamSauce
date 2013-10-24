@@ -84,7 +84,8 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. Build Test Project to the temporary path
 echo Building test project
-%MSBUILD_PATH% "%DEPLOYMENT_SOURCE%\TeamSauce.Test\TeamSauce.Test.csproj" /nologo /verbosity:m /t:Build /p:AutoParameterizationWebConfigConnectionStrings=false;Configuration=Release /p:SolutionDir="%DEPLOYMENT_SOURCE%\.\\" %SCM_BUILD_ARGS%
+echo "%DEPLOYMENT_SOURCE%\TeamSauce.Test\TeamSauce.Test.csproj" /nologo /verbosity:m /t:Build /p:AutoParameterizationWebConfigConnectionStrings=false;Configuration=Release %SCM_BUILD_ARGS%
+%MSBUILD_PATH% "%DEPLOYMENT_SOURCE%\TeamSauce.Test\TeamSauce.Test.csproj" /nologo /verbosity:m /t:Build /p:AutoParameterizationWebConfigConnectionStrings=false;Configuration=Release %SCM_BUILD_ARGS%
 
 
 IF !ERRORLEVEL! NEQ 0 goto error
