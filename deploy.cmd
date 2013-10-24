@@ -85,15 +85,14 @@ IF !ERRORLEVEL! NEQ 0 goto error
 :: 3. Build Test Project to the temporary path
 echo Building test project
 %MSBUILD_PATH% "%DEPLOYMENT_SOURCE%\TeamSauce.Test\TeamSauce.Test.csproj" /nologo /verbosity:m /t:Build /p:AutoParameterizationWebConfigConnectionStrings=false;Configuration=Release /p:SolutionDir="%DEPLOYMENT_SOURCE%\.\\" %SCM_BUILD_ARGS%
-dir "%DEPLOYMENT_SOURCE%\TeamSauce.Test\bin
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 4. Running Tests
 echo Running Tests
-dir "%DEPLOYMENT_SOURCE%\TeamSauce.Test\bin\Release
+dir "%DEPLOYMENT_SOURCE%\packages\NUnit.Runners.2.6.3\tools
 %DEPLOYMENT_SOURCE%\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe "%DEPLOYMENT_SOURCE%\TeamSauce.Test\bin\Release\TeamSauce.Test.dll"
 echo Done runnning tests.
-
+TeamSauce.Test.dll
 IF !ERRORLEVEL! NEQ 0 (
 	echo TESTS FAILED!
 	goto error
