@@ -6,7 +6,7 @@ namespace TeamSauce.Test
     public class Class1
     {
         [Test]
-        public void PassPlease()
+        public void BeTrue()
         {
             Assert.That(true, Is.True);
         }
