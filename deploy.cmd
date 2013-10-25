@@ -91,7 +91,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 echo Running Tests
 %DEPLOYMENT_SOURCE%\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe "%DEPLOYMENT_SOURCE%\TeamSauce.Test\bin\Release\TeamSauce.Test.dll"
 echo Done runnning tests.
-TeamSauce.Test.dll
+
 IF !ERRORLEVEL! NEQ 0 (
 	echo TESTS FAILED!
 	goto error
